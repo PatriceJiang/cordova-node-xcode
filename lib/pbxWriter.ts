@@ -17,7 +17,6 @@
 
 ///<reference path="./index.d.ts" />
 
-import * as pbxProj from './pbxProject';
 import * as util from 'util';
 import { EventEmitter } from 'events';
 import { Contents, PbxObject, PbxItemValue, PbxObjectItem, WriterOption } from '.';
@@ -124,7 +123,7 @@ class PbxWriter extends EventEmitter {
                 if (COMMENT_KEY.test(key)) continue;
 
                 cmt = comment(key, proj as any)!;
-                obj = proj[key];
+                obj = (proj as any)[key];
 
                 if (isArray(obj)) {
                     this.writeArray(obj as PbxObject[], key)

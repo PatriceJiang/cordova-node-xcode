@@ -190,7 +190,7 @@ class PbxFile implements FileReference {
     explicitFileType?: string;
     basename: string;
     customFramework?: boolean;
-    group: string;
+    group?: string;
     dirname?: string;
     path: string;
     fileEncoding: string | number;
@@ -198,6 +198,10 @@ class PbxFile implements FileReference {
     sourceTree?: SourceTreeType;
     includeInIndex: number;
     settings?: { [key: string]: string[] | string };
+    plugin?: boolean;
+    uuid?: string;
+    fileRef?: string;
+    target?:string;
 
     constructor(filepath: string, opt: FileOption) {
         var opt = opt || {};
